@@ -12,15 +12,21 @@ export default defineConfig(({ mode }) => ({
         popup: resolve(__dirname, "src/ui/popup.html"),
         options: resolve(__dirname, "src/ui/options.html"),
         panel: resolve(__dirname, "src/ui/panel.html"),
-        content: resolve(__dirname, "src/content/content-script.ts"),
-        background: resolve(__dirname, "src/background/service-worker.ts")
+        "content-script": resolve(
+          __dirname,
+          "src/content/content-script.ts"
+        ),
+        "service-worker": resolve(
+          __dirname,
+          "src/background/service-worker.ts"
+        )
       },
       output: {
         entryFileNames: (chunk) => {
-          if (chunk.name === "background") {
+          if (chunk.name === "service-worker") {
             return "background/[name].js";
           }
-          if (chunk.name === "content") {
+          if (chunk.name === "content-script") {
             return "content/[name].js";
           }
           return "ui/[name].js";
