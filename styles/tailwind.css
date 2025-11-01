@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+  --px-bg: rgba(17, 24, 39, 0.86);
+  --px-bg-light: #f8fafc;
+  --px-border: rgba(148, 163, 184, 0.3);
+  --px-primary: #2563eb;
+}
+
+.dark :root {
+  --px-bg: rgba(17, 24, 39, 0.92);
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.pilotx-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.pilotx-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.pilotx-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 999px;
+}
+
+.pilotx-card {
+  @apply rounded-xl border border-slate-200/60 bg-white/80 p-4 shadow-sm backdrop-blur dark:border-slate-700/60 dark:bg-slate-900/80;
+}
+
+.pilotx-btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg border border-transparent bg-primary px-3 py-1.5 text-sm font-medium text-white transition hover:bg-primary-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-primary;
+}
+
+.pilotx-input {
+  @apply w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm shadow-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100;
+}
