@@ -1,0 +1,31 @@
+{
+  "name": "pilotx",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prepare:icons": "node ./scripts/generate-icons.mjs",
+    "predev": "npm run prepare:icons",
+    "prebuild": "npm run prepare:icons",
+    "dev": "vite",
+    "build": "node ./scripts/build.mjs",
+    "zip": "node ./scripts/zip.mjs",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "nanoid": "^5.0.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.273",
+    "@types/react": "^18.2.25",
+    "@types/react-dom": "^18.2.11",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11"
+  }
+}

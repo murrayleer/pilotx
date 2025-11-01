@@ -1,0 +1,8 @@
+node_modules/
+dist/
+pilotx.zip
+npm-debug.log*
+.DS_Store
+assets/icon16.png
+assets/icon48.png
+assets/icon128.png

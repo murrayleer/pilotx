@@ -1,0 +1,55 @@
+{
+  "manifest_version": 3,
+  "name": "PilotX – AI Copilot for the Web",
+  "version": "1.0.0",
+  "description": "Summaries, Q&A, rewriting, and AI assistance directly inside any webpage.",
+  "action": {
+    "default_popup": "ui/popup.html",
+    "default_title": "PilotX"
+  },
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
+  },
+  "permissions": ["storage", "activeTab", "scripting", "contextMenus"],
+  "host_permissions": ["*://*/*"],
+  "commands": {
+    "toggle-sidebar": {
+      "suggested_key": {
+        "default": "Alt+Shift+S"
+      },
+      "description": "Toggle PilotX sidebar"
+    },
+    "quick-summarize": {
+      "suggested_key": {
+        "default": "Alt+Shift+J"
+      },
+      "description": "Summarize current page with PilotX"
+    }
+  },
+  "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/content-script.js"],
+      "css": ["content/sidebar.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "content/sidebar.css",
+        "ui/panel.html",
+        "ui/panel.js",
+        "styles/tailwind.css"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "options_page": "ui/options.html"
+}
